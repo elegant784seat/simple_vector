@@ -216,7 +216,7 @@ public:
     T* data() noexcept {
         return data_;
     }
-    T* data() const noexcept {
+    const T* data() const noexcept {
         return data_;
     }
     explicit Mashallah(size_t count, const T& val = T()) {
