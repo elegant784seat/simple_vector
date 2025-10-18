@@ -88,7 +88,7 @@ public:
     }
     void push_back(T&& val) {
         scale_capacity();
-        data_[size_++] == std::move(val);
+        data_[size_++] = std::move(val);
     }
     size_t get_size() const {
         return size_;
