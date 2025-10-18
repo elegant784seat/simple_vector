@@ -227,5 +227,29 @@ public:
             data_[i] = val;
         }
     }
+    void insert(size_t index, const T& val) {
+        if (index > size_) {
+            throw std::out_of_range("Mashallah::insert");
+        }
+        scale_capacity();
+
+        for (size_t i = size_; i > index; --i) {
+            data_[i] = std::move(data_[i - 1]);
+        }
+        data_[index] = val;
+        ++size_;
+    }
+    void insert(size_t index, T&& val) {
+        if (index > size_) {
+            throw std::out_of_range("Mashallah::insert");
+        }
+        scale_capacity();
+
+        for (size_t i = size_; i > index; --i) {
+            data_[i] = std::move(data_[i - 1]);
+        }
+        data_[index] = std::move(val);
+        ++size_;
+    }
 };
 #endif //VECTOR_VECTOR_HPP
